@@ -8,7 +8,7 @@ import (
 
 var (
 	gormPackage    = "gorm.io/gorm"
-	gormzapPackage = "github.com/things-go/gin-contrib/gormzap"
+	gormzapPackage = "github.com/andoma-go/gin-contrib/gormzap"
 )
 
 // FileWithLineNum return the file name and line number of the current file

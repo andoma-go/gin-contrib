@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/things-go/gin-contrib/pprof"
+	"github.com/andoma-go/gin-contrib/pprof"
 )
 
 func main() {

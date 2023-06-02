@@ -1,11 +1,13 @@
-module github.com/andoma-go/gin-contrib
+module github.com/andoma-go/gin-contrib/examples
 
 go 1.20
 
+replace github.com/andoma-go/gin-contrib => ../
+
 require (
+	github.com/andoma-go/gin-contrib v0.0.0-00010101000000-000000000000
 	github.com/casbin/casbin/v2 v2.69.1
 	github.com/gin-gonic/gin v1.9.1
-	github.com/things-go/limiter v0.1.2
 	go.uber.org/zap v1.24.0
 	gorm.io/gorm v1.25.1
 )

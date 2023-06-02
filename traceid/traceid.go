@@ -3,8 +3,8 @@ package traceid
 import (
 	"context"
 
+	"github.com/andoma-go/gin-contrib/utilities/sequence"
 	"github.com/gin-gonic/gin"
-	"github.com/things-go/gin-contrib/utilities/sequence"
 )
 
 // Key to use when setting the trace id.
