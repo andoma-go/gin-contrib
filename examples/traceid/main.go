@@ -3,9 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/gin-gonic/gin"
-
 	"github.com/andoma-go/gin-contrib/traceid"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {

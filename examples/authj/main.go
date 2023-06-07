@@ -3,10 +3,9 @@ package main
 import (
 	"net/http"
 
+	"github.com/andoma-go/gin-contrib/authj"
 	"github.com/casbin/casbin/v2"
 	"github.com/gin-gonic/gin"
-
-	"github.com/andoma-go/gin-contrib/authj"
 )
 
 func main() {

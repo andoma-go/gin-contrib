@@ -4,11 +4,10 @@ import (
 	"context"
 	"time"
 
+	"github.com/andoma-go/gin-contrib/gormzap"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-
-	"github.com/andoma-go/gin-contrib/gormzap"
 )
 
 func main() {

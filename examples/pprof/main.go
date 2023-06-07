@@ -1,9 +1,8 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-
 	"github.com/andoma-go/gin-contrib/pprof"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {

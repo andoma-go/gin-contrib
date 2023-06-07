@@ -5,10 +5,9 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/andoma-go/gin-contrib/gzap"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
-
-	"github.com/andoma-go/gin-contrib/gzap"
 )
 
 func main() {

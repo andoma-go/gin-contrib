@@ -14,16 +14,14 @@ gin contrib is middleware utilities for [Gin](https://github.com/gin-gonic/gin)
 Use go get.
 
 ```bash
-    go get github.com/andoma-go/gin-contrib
+go get github.com/andoma-go/gin-contrib
 ```
 
 Then import the package into your own code.
 
 ```go
-    import "github.com/andoma-go/gin-contrib"
+import "github.com/andoma-go/gin-contrib"
 ```
-
-### Example
 
 ## License
 
