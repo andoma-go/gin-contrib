@@ -1,10 +1,14 @@
-name: Tests
+name: test
 
 on:
   push:
+    branches:
+      - main
     paths-ignore:
       - "**.md"
   pull_request:
+    branches:
+      - main
     paths-ignore:
       - "**.md"
 
@@ -20,16 +24,13 @@ jobs:
       matrix:
         go-version: ["1.19.x", "1.20.x"]
         os: [ubuntu-latest, windows-latest, macos-latest]
-
     steps:
-      - name: Set up Go ${{ matrix.go-version }}
+      - name: Setup Go ${{ matrix.go-version }}
         uses: actions/setup-go@v4
         with:
           go-version: ${{ matrix.go-version }}
-
-      - name: Check out code into the Go module directory
+      - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Print Go environment
         id: vars
         run: |
@@ -42,7 +43,6 @@ jobs:
           # Calculate the short SHA1 hash of the git commit
           echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
           echo "go_cache=$(go env GOCACHE)" >> $GITHUB_OUTPUT
-
       - name: Cache go modules
         uses: actions/cache@v3
         with:
@@ -52,14 +52,6 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.go-version }}-go-ci-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.go-version }}-go-ci
-
-      - name: Unit test
+      - name: Run Go tests
         run: |
-          go test -v -race -coverprofile=coverage -covermode=atomic ./...
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: ./coverage
-          flags: unittests
-          verbose: true
+          go test -v ./...

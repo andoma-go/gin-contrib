@@ -1,18 +1,23 @@
-name: Lint
+name: lint
 
 on:
   push:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+  pull_request:
+    branches:
+      - main
     paths-ignore:
       - "**.md"
 
 jobs:
-  golang-ci:
-    name: GolangCi-Lint
+  golangci:
+    name: Run golangci-lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v3
-        with: # BUG: typecheck error when enable all
-          args: --disable-all -E goimports,misspell,whitespace
+      - uses: golangci/golangci-lint-action@v3
+        with:
           version: latest
