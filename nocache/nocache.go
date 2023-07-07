@@ -52,6 +52,5 @@ func NoCache() gin.HandlerFunc {
 		for k, v := range noCacheHeaders {
 			c.Writer.Header().Set(k, v)
 		}
-		c.Next()
 	}
 }
