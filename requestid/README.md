@@ -42,7 +42,7 @@ import (
   "net/http"
   "time"
 
-  "github.com/andoma-go/requestid"
+  "github.com/andoma-go/gin-contrib/requestid"
   "github.com/gin-gonic/gin"
 )
 
