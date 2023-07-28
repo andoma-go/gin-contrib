@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
+	"github.com/andoma-go/gin"
 	"github.com/andoma-go/gin-contrib/pprof"
-	"github.com/gin-gonic/gin"
 )
 
 func main() {

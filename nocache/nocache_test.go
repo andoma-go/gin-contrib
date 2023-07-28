@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gin-gonic/gin"
+	"github.com/andoma-go/gin"
 )
 
 func Test_NoCacheHeaders(t *testing.T) {

@@ -3,7 +3,7 @@ package gzip
 import (
 	"compress/gzip"
 
-	"github.com/gin-gonic/gin"
+	"github.com/andoma-go/gin"
 )
 
 const (

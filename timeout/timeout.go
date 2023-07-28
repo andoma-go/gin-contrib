@@ -3,7 +3,7 @@ package timeout
 import (
 	"time"
 
-	"github.com/gin-gonic/gin"
+	"github.com/andoma-go/gin"
 )
 
 var bufPool *BufferPool

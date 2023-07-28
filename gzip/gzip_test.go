@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/gin-gonic/gin"
+	"github.com/andoma-go/gin"
 	"github.com/stretchr/testify/assert"
 )
 

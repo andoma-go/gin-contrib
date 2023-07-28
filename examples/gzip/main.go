@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/andoma-go/gin"
 	"github.com/andoma-go/gin-contrib/gzip"
-	"github.com/gin-gonic/gin"
 )
 
 func main() {

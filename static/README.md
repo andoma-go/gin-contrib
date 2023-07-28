@@ -13,7 +13,7 @@ package main
 
 import (
   "github.com/andoma-go/gin-contrib/static"
-  "github.com/gin-gonic/gin"
+  "github.com/andoma-go/gin"
 )
 
 func main() {

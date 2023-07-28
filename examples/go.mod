@@ -5,8 +5,8 @@ go 1.20
 replace github.com/andoma-go/gin-contrib => ../
 
 require (
+	github.com/andoma-go/gin v1.9.1
 	github.com/andoma-go/gin-contrib v0.0.0-00010101000000-000000000000
-	github.com/gin-gonic/gin v1.9.1
 )
 
 require (

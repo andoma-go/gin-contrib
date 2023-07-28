@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
+	"github.com/andoma-go/gin"
 	"github.com/andoma-go/gin-contrib/static"
-	"github.com/gin-gonic/gin"
 )
 
 func main() {

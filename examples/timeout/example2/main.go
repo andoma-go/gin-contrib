@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/andoma-go/gin"
 	"github.com/andoma-go/gin-contrib/timeout"
-	"github.com/gin-gonic/gin"
 )
 
 func testResponse(c *gin.Context) {

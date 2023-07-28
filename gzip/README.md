@@ -17,7 +17,7 @@ import (
   "time"
 
   "github.com/andoma-go/gin-contrib/gzip"
-  "github.com/gin-gonic/gin"
+  "github.com/andoma-go/gin"
 )
 
 func main() {
@@ -45,7 +45,7 @@ import (
   "time"
 
   "github.com/andoma-go/gin-contrib/gzip"
-  "github.com/gin-gonic/gin"
+  "github.com/andoma-go/gin"
 )
 
 func main() {
@@ -73,7 +73,7 @@ import (
   "time"
 
   "github.com/andoma-go/gin-contrib/gzip"
-  "github.com/gin-gonic/gin"
+  "github.com/andoma-go/gin"
 )
 
 func main() {
@@ -101,7 +101,7 @@ import (
   "time"
 
   "github.com/andoma-go/gin-contrib/gzip"
-  "github.com/gin-gonic/gin"
+  "github.com/andoma-go/gin"
 )
 
 func main() {

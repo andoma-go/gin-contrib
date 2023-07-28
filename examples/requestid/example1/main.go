@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/andoma-go/gin"
 	"github.com/andoma-go/gin-contrib/requestid"
-	"github.com/gin-gonic/gin"
 )
 
 func main() {

@@ -15,7 +15,7 @@ import (
   "time"
 
   "github.com/andoma-go/gin-contrib/timeout"
-  "github.com/gin-gonic/gin"
+  "github.com/andoma-go/gin"
 )
 
 func emptySuccessResponse(c *gin.Context) {
@@ -70,7 +70,7 @@ import (
   "time"
 
   "github.com/andoma-go/gin-contrib/timeout"
-  "github.com/gin-gonic/gin"
+  "github.com/andoma-go/gin"
 )
 
 func testResponse(c *gin.Context) {

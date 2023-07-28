@@ -1,6 +1,6 @@
 # gin contrib
 
-gin contrib is middleware utilities for [Gin](https://github.com/gin-gonic/gin)
+gin contrib is middleware utilities for [Gin](https://github.com/andoma-go/gin)
 
 [![GoDoc](https://godoc.org/github.com/andoma-go/gin-contrib?status.svg)](https://godoc.org/github.com/andoma-go/gin-contrib)
 [![Tests](https://github.com/andoma-go/gin-contrib/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/andoma-go/gin-contrib/actions/workflows/test.yml)
