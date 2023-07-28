@@ -89,12 +89,12 @@ func (s *secure) process(w http.ResponseWriter, r *http.Request) error {
 
 		if !isGoodHost {
 			s.opt.BadHostHandler.ServeHTTP(w, r)
-			return fmt.Errorf("Bad host name: %s", r.Host)
+			return fmt.Errorf("bad host name: %s", r.Host)
 		}
 	}
 
 	// SSL check.
-	if s.opt.SSLRedirect && s.opt.IsDevelopment == false {
+	if s.opt.SSLRedirect && !s.opt.IsDevelopment {
 		isSSL := false
 		if strings.EqualFold(r.URL.Scheme, "https") || r.TLS != nil {
 			isSSL = true
@@ -107,7 +107,7 @@ func (s *secure) process(w http.ResponseWriter, r *http.Request) error {
 			}
 		}
 
-		if isSSL == false {
+		if !isSSL {
 			url := r.URL
 			url.Scheme = "https"
 			url.Host = r.Host
@@ -122,7 +122,7 @@ func (s *secure) process(w http.ResponseWriter, r *http.Request) error {
 			}
 
 			http.Redirect(w, r, url.String(), status)
-			return fmt.Errorf("Redirecting to HTTPS")
+			return fmt.Errorf("redirecting to HTTPS")
 		}
 	}
 
@@ -171,7 +171,7 @@ func Secure(options Options) gin.HandlerFunc {
 			if c.Writer.Written() {
 				c.AbortWithStatus(c.Writer.Status())
 			} else {
-				c.AbortWithError(http.StatusInternalServerError, err)
+				_ = c.AbortWithError(http.StatusInternalServerError, err)
 			}
 		}
 	}
