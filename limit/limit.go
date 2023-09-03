@@ -43,7 +43,7 @@ func New(CIDRs string, opts ...Option) gin.HandlerFunc {
 			// try to parse the CIDR
 			_, cidrIPNet, err := net.ParseCIDR(cidr)
 			if err != nil {
-				c.AbortWithError(500, err)
+				_ = c.AbortWithError(500, err)
 				return
 			}
 
