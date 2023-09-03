@@ -10,7 +10,7 @@ package main
 
 import (
     gin "github.com/andoma-go/gin"
-    "github.com/andoma-go/gin-contrib/accesslimit"
+    "github.com/andoma-go/gin-contrib/limit"
 )
 
 func main() {
@@ -18,10 +18,10 @@ func main() {
     r := gin.Default()
 
     // this API is only accessible from Docker containers
-    r.Use(accesslimit.New("172.18.0.0/16"))
+    r.Use(limit.New("172.18.0.0/16"))
 
     // if need to specify serveral range of allowed sources, use comma to concatenate them
-    // r.Use(accesslimit.New("172.18.0.0/16, 127.0.0.1/32"))
+    // r.Use(limit.New("172.18.0.0/16, 127.0.0.1/32"))
 
     // routes
     r.GET("/", func (c *gin.Context) {
