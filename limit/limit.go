@@ -14,7 +14,7 @@ func New(CIDRs string, opts ...Option) gin.HandlerFunc {
 
 	limit := &Limit{
 		handler: func(c *gin.Context, remoteAddr, CIDRs string) {
-			log.Printf("[LIMIT] Request from [" + remoteAddr + "] is not allow to access `" + c.Request.RequestURI + "`, only allow from: [" + CIDRs + "]")
+			log.Println("[LIMIT] Request from [" + remoteAddr + "] is not allow to access `" + c.Request.RequestURI + "`, only allow from: [" + CIDRs + "]")
 			c.AbortWithStatus(403)
 		},
 	}
