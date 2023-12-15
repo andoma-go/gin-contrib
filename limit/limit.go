@@ -12,15 +12,15 @@ import (
 // CIDRs accepts a list of CIDRs, separated by comma. (e.g. 127.0.0.1/32, ::1/128 )
 func New(CIDRs string, opts ...Option) gin.HandlerFunc {
 
-	limit := &Limit{
-		handler: func(c *gin.Context, remoteAddr, CIDRs string) {
+	l := &Limit{
+		handler: func(c *gin.Context, remoteAddr, CIDRs string) bool {
 			log.Println("[LIMIT] Request from [" + remoteAddr + "] is not allow to access `" + c.Request.RequestURI + "`, only allow from: [" + CIDRs + "]")
-			c.AbortWithStatus(403)
+			return true
 		},
 	}
 
 	for _, opt := range opts {
-		opt(limit)
+		opt(l)
 	}
 
 	return func(c *gin.Context) {
@@ -54,8 +54,8 @@ func New(CIDRs string, opts ...Option) gin.HandlerFunc {
 		}
 
 		// if no CIDR ranges contains our IP
-		if matchCount == 0 && limit.handler != nil {
-			limit.handler(c, remoteAddr, CIDRs)
+		if matchCount == 0 && l.handler(c, remoteAddr, CIDRs) {
+			c.AbortWithStatus(403)
 		}
 	}
 }

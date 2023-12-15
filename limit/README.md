@@ -1,6 +1,6 @@
 # Gin Access Limit Middleware
 
-Copied from [bu/gin-access-limit](https://github.com/bu/gin-access-limit)
+Based on [bu/gin-access-limit](https://github.com/bu/gin-access-limit)
 
 ## Usage
 

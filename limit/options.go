@@ -2,7 +2,7 @@ package limit
 
 import "github.com/andoma-go/gin"
 
-type Handler func(c *gin.Context, remoteAddr, CIDRs string)
+type Handler func(c *gin.Context, remoteAddr, CIDRs string) bool
 
 type Limit struct {
 	handler Handler
