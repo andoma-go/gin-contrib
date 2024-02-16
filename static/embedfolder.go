@@ -11,6 +11,7 @@ import (
 
 type embedFileSystem struct {
 	http.FileSystem
+	overrides []Override
 }
 
 func (e embedFileSystem) Exists(prefix string, path string) bool {
@@ -18,11 +19,20 @@ func (e embedFileSystem) Exists(prefix string, path string) bool {
 	return err == nil
 }
 
-func EmbedFolder(fsEmbed embed.FS, reqPath string) (ServeFileSystem, error) {
+func (e embedFileSystem) Override(c *gin.Context) bool {
+	if len(e.overrides) > 0 {
+		fn := e.overrides[0]
+		return fn(c)
+	}
+	return false
+}
+
+func EmbedFolder(fsEmbed embed.FS, reqPath string, overrides ...Override) (ServeFileSystem, error) {
 	targetPath := strings.TrimSpace(reqPath)
 	if targetPath == "" {
 		return embedFileSystem{
 			FileSystem: http.FS(fsEmbed),
+			overrides:  overrides,
 		}, nil
 	}
 
@@ -34,6 +44,7 @@ func EmbedFolder(fsEmbed embed.FS, reqPath string) (ServeFileSystem, error) {
 
 	return embedFileSystem{
 		FileSystem: http.FS(fsys),
+		overrides:  overrides,
 	}, nil
 }
 

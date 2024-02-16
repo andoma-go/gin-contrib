@@ -7,9 +7,12 @@ import (
 	"github.com/andoma-go/gin"
 )
 
+type Override func(*gin.Context) bool
+
 type ServeFileSystem interface {
 	http.FileSystem
 	Exists(prefix string, path string) bool
+	Override(*gin.Context) bool
 }
 
 func ServeRoot(urlPrefix, root string) gin.HandlerFunc {
@@ -28,7 +31,7 @@ func ServeCached(urlPrefix string, fs ServeFileSystem, cacheAge uint) gin.Handle
 		fileserver = http.StripPrefix(urlPrefix, fileserver)
 	}
 	return func(c *gin.Context) {
-		if fs.Exists(urlPrefix, c.Request.URL.Path) {
+		if fs.Exists(urlPrefix, c.Request.URL.Path) && !fs.Override(c) {
 			if cacheAge != 0 {
 				c.Writer.Header().Add("Cache-Control", fmt.Sprintf("max-age=%d", cacheAge))
 			}

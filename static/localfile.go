@@ -15,14 +15,6 @@ type localFileSystem struct {
 	indexes bool
 }
 
-func LocalFile(root string, indexes bool) *localFileSystem {
-	return &localFileSystem{
-		FileSystem: gin.Dir(root, indexes),
-		root:       root,
-		indexes:    indexes,
-	}
-}
-
 func (l *localFileSystem) Exists(prefix string, file string) bool {
 	if p := strings.TrimPrefix(file, prefix); len(p) < len(file) {
 		name := path.Join(l.root, path.Clean(p))
@@ -41,4 +33,17 @@ func (l *localFileSystem) Exists(prefix string, file string) bool {
 		return true
 	}
 	return false
+}
+
+// Dummy
+func (l *localFileSystem) Override(*gin.Context) bool {
+	return false
+}
+
+func LocalFile(root string, indexes bool) *localFileSystem {
+	return &localFileSystem{
+		FileSystem: gin.Dir(root, indexes),
+		root:       root,
+		indexes:    indexes,
+	}
 }
