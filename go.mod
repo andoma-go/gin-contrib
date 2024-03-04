@@ -5,7 +5,7 @@ go 1.21
 require (
 	github.com/andoma-go/gin v1.9.1
 	github.com/google/uuid v1.6.0
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.9.0
 	github.com/things-go/limiter v0.1.2
 )
 
