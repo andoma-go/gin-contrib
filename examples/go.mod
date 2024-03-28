@@ -1,11 +1,11 @@
 module github.com/andoma-go/gin-contrib/examples
 
-go 1.20
+go 1.21.5
 
 replace github.com/andoma-go/gin-contrib => ../
 
 require (
-	github.com/andoma-go/gin v1.9.1
+	github.com/andoma-go/gin v0.0.0-20230728210923-e50831afc3df
 	github.com/andoma-go/gin-contrib v0.0.0-00010101000000-000000000000
 )
 

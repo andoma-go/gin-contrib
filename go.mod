@@ -1,9 +1,9 @@
 module github.com/andoma-go/gin-contrib
 
-go 1.21
+go 1.21.5
 
 require (
-	github.com/andoma-go/gin v1.9.1
+	github.com/andoma-go/gin v0.0.0-20230728210923-e50831afc3df
 	github.com/google/uuid v1.6.0
 	github.com/stretchr/testify v1.9.0
 	github.com/things-go/limiter v0.1.2
